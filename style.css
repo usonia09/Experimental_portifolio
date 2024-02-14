@@ -1,0 +1,34 @@
+body {
+  font: 100%/1.5 system-ui;
+}
+
+nav a {
+  padding: 10px;
+}
+
+label,
+input,
+textarea,
+button {
+  display: block;
+}
+
+label,
+button {
+  /* Add some space before and after each label */
+  margin-block: 1em; /* em is a unit that scales with the font size */
+}
+
+input,
+textarea {
+  /* Fill the whole available width. */
+  width: 100%;
+
+  /* Special sizing mode that makes the element’s width
+	   include internal spacing (padding) and borders
+	 */
+  box-sizing: border-box;
+
+  /* Use the same font and font metrics as the rest of the page */
+  font: inherit;
+}
