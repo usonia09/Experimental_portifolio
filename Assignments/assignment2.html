@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vis & Society Assignment 2</title>
+    <link
+      rel="stylesheet"
+      href="https://vis-society.github.io/assignments/report.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 2</small>
+        Exploratory Data Analysis
+      </h1>
+
+      <p><strong>Sonia Uwase</strong> — <em>usonia@mit.edu</em></p>
+    </header>
+    <main>
+      <section>
+        <h2>Subtheme: Condo Conversions</h2>
+        <h3>Dataset: Condo conversions in the City of Boston</h3>
+
+        <p>
+          This dataset contains data about different types of properties
+          converted into condos from 2015-2024 in Boston. For each condo
+          conversion, the dataset includes data from the year just prior to the
+          conversion and the year after the conversion. It includes details
+          about property and land value, property condition, property type,
+          other details.
+        </p>
+
+        <h3>Initial Analysis Questions</h3>
+        <ol>
+          <b
+            ><li>
+              How has condo conversions impacted the availability of spaces for
+              residential use?
+            </li></b
+          >
+          <p>
+            <b><i>Motivation: </i></b>
+            With various properties undergoing condo conversion, I am interested
+            in investigating how these has impact availability of spaces for
+            residential use. Has the conversion of properties such as family
+            home to condos increased available residential spaces? What
+            implications does it have on the resulting condos?
+          </p>
+
+          <b
+            ><li>
+              Who are buying the new condos? Are they previous residents?
+            </li></b
+          >
+          <p>
+            <b><i>Motivation: </i></b>
+            In the article discussing Millbrook's condominium conversion,
+            Berkeley Investments asserted that Millbrook was often the final
+            destination for homebuyers. I am curious to investigate whether
+            locations undergoing condo conversions indeed exhibit a higher
+            percentage of residents contemplating the purchase of a house in the
+            near future and if these condos are being priced with the current
+            residents' financial capability in mind (<a
+              href="https://www.cambridgeday.com/2018/02/17/renters-at-a-brand-new-somerville-building-surprised-by-news-millbrooks-going-condo/"
+              >source</a
+            >).
+          </p>
+
+          <b><li>What factors affect the rate of Condo conversions?</li></b>
+          <p>
+            <b><i>Motivation: </i></b>
+            In the reading, Homes for Profits, it is mentioned that investor
+            activity is most likely to occur in the region's high-density urban
+            submarket with relatively low housing price (<a
+              href="https://homesforprofit.mapc.org/report"
+              >source</a
+            >). However, are there other underlying factors -- other than
+            housing prices -- that might motivate condo conversions.
+          </p>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Discoveries & Insights</h2>
+
+        The process is initiated with a sanity check on the data, aiming to
+        detect and resolve any potential data quality issues that may arise.
+        Once confident in the improved quality of the data, I will then proceed
+        to utilize it for exploring the aforementioned questions.
+
+        <figure>
+          <img src="/images/nc_sanity.png" alt="" width="100%" />
+          <figcaption>
+            Observe the gap appearing at 2018.
+            <i
+              >Post year denotes the year after the property underwent
+              conversion.</i
+            >
+          </figcaption>
+        </figure>
+
+        In observing the general trend in number of condos units
+        post-conversion. An immediate observation is the lack of data for the
+        year 2018. This appeared unusual as it suggest no condo conversion
+        occured in 2017. It seems to be more plausible that this is a data gap
+        rather than an actual absence of condo conversion. Therefore, the data
+        was filtered to include instances with prior year from 2018 onwards to
+        account for the missing data issue. This approach aims to leverage
+        complete data coverage throughout a contiguous period, 2018-2024.
+        <figure>
+          <img src="/images/nc_filtered.png" alt="" width="100%" /><img
+            src="IMAGE_FILENAME"
+            alt=""
+          />
+          <figcaption>
+            Revised dataset to account for 2017 missing data.
+          </figcaption>
+        </figure>
+
+        Further data scrutinization once again reveals another data quality
+        issues.
+        <figure>
+          <img src="/images/property_value_pc.png" alt="" width="100%" />
+          <figcaption>
+            The chart reveals missing data concerning property value after condo
+            conversion
+          </figcaption>
+        </figure>
+
+        The noticeable gap in our data is primarily evident in the information
+        for the year 2021. Unlike our previous approach, we cannot simply
+        eliminate everything before 2021, as doing so would result in the loss
+        of a significant amount of valuable data. Additionally, there may be
+        other years with missing data that are less conspicuous. To address this
+        issue, we plan to filter out data with incomplete post-property value
+        information selectively during specific analyses that rely on that
+        aspect.
+
+        <p>
+          Having addressed data quality issues, we now embark on the exploration
+          of the questions initially posed.
+        </p>
+        <figure>
+          <img src="/images/residential_count.png" alt="" width="100%" />
+          <figcaption>
+            Comparing the count of residential units and the number of floors
+            designated for residential use before and after conversion.
+          </figcaption>
+        </figure>
+
+        Our initial question was how condo conversions impact(ed) the
+        availability of spaces for residential use. The chart above illustrates
+        that, following the condo conversion, both the count of residential
+        units and the number of floors designated for residential use are
+        higher. However, the gap for the residential units is significantly
+        higher than that for residential floors. What might that mean?
+
+        <figure>
+          <img src="/images/aggregated.png" alt="" width="100%" />
+          <img src="/images/aggregate_sum.png" alt="" width="100%" />
+          <figcaption>
+            Depiction of the contribution of various building types to the
+            number of residential units, with none having residential units
+            before the conversion.
+          </figcaption>
+        </figure>
+
+        The chart shows the contribution of different building type to the
+        number of residential units post conversion. The building type has been
+        filtered to display only the property which had no residential units
+        before the conversion.
+
+        <p>
+          The figure highlights a notable contribution by these propreties as
+          shown by their aggregated contribution. This contribution helps
+          explain the significant disparity in the number of residential units
+          before and after conversion, underscoring that a considerable portion
+          of the converted buildings initially lacked residential units prior to
+          the conversion.
+        </p>
+
+        <figure>
+          <img src="/images/priovspos.png" alt="" width="100%" />
+          <figcaption>
+            Comparing the facilities before and after the conversion
+          </figcaption>
+        </figure>
+
+        Another follow-up that had arised is the implications of the condo
+        conversion on the structure and conditions of the resulting condo. The
+        chart above demonstrate a consistent downfall in the facilities like
+        parking space and baths.
+
+        <figure>
+          <img src="/images/living_pre_post.png" alt="" width="100%" />
+          <figcaption>
+            Impact of condo conversion on living area space in properties
+          </figcaption>
+        </figure>
+
+        Transitioning to the following question: Who is acquiring the new
+        condos, and do they include previous residents? To explore this, we
+        delve into the transformations occurring in the properties during
+        conversion. The findings reveal a notable decrease in living areas by
+        almost half, indicating that these changes might not be as accommodating
+        to larger families.
+
+        <figure>
+          <img src="/images/condition_prior.png" alt="" width="100%" />
+          <figcaption>Overall property condition pre-conversion</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/condition_post.png" alt="" width="100%" />
+          <figcaption>Overall property condition post-conversion</figcaption>
+        </figure>
+
+        Upon recognizing that condo conversions result in significant losses,
+        including parking spaces, living space, and some facilities, we took a
+        step back to comprehend the broader impact of these conversions on
+        properties. The above two figures depict this assessment. The first one
+        illustrates the overall property condition pre-conversion, while the
+        second showcases the overall condition post-conversion. Upon comparing
+        the two observations, it becomes evident that property conditions, on
+        the whole, are generally improved by the conversion.
+
+        <figure>
+          <img src="/images/bedroom_cdn.png" alt="" width="100%" />
+          <figcaption>
+            Illustration of the portion sizes representing bedroom condition of
+            properties prior to condo conversion
+          </figcaption>
+        </figure>
+        Now, turning to the final question: what factors contribute to condo
+        conversions? The chart above delves into the attributes of properties
+        undergoing condo conversion. Upon inspecting the diagram, a significant
+        portion of bedroom conditions before conversion remains unreported.
+        However, the second-largest segment comprises bedrooms in good
+        conditions. This raises the question of whether these 'good' conditions
+        evolve into 'excellent' conditions post-conversion. Unfortunately,
+        further exploration encountered an obstacle due to the unavailability of
+        post-condition data for bedrooms. Nonetheless, based on previous
+        observations, there are compelling grounds to believe that property
+        conditions do not decline. There might indeed be a transformation from
+        'good' to at least 'very good,' as indicated by the results from prior
+        investigations, particularly the one preceding this analysis.
+
+        <p>
+          The above observation does suggest that the investors are interested
+          in property that are generally in good shape which makes sense as that
+          facilitate the conversion process.
+        </p>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+
+        <p>
+          The investigation into Boston's condo conversion data reveals that
+          while such conversions increase residential space, there is a
+          trade-off with smaller living spaces, fewer amenities, and parking
+          spots. This poses challenges for larger families among the previous
+          residents. Paradoxically, despite these reductions, the overall
+          condition of converted properties tends to improve. The motivation
+          behind condo conversions appears linked to targeting properties in
+          good condition, suggesting investor preferences. However, it is
+          acknowledged that various factors such as geographic location,
+          political atmosphere, and economic considerations also influence
+          conversion attractiveness. A more comprehensive analysis requires
+          additional data to understand these complexities fully.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
