@@ -1,5 +1,3 @@
-console.log("IT’S ALIVE!");
-
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
@@ -12,10 +10,10 @@ currentLink?.classList.add("current");
 
 let pages = [
   { url: "", title: "Home" },
-  { url: "projects/", title: "Projects" },
-  { url: "Assignments/", title: "Assignments" },
-  { url: "contact/", title: "Contact Me" },
-  { url: "resume/", title: "My Resume" },
+  { url: "Experimental_portifolio/projects/", title: "Projects" },
+  { url: "Experimental_portifolio/Assignments/", title: "Assignments" },
+  { url: "Experimental_portifolio/contact/", title: "Contact Me" },
+  { url: "Experimental_portifolio/resume/", title: "My Resume" },
 ];
 
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
@@ -39,3 +37,14 @@ for (let p of pages) {
   }
   nav.append(a);
 }
+
+document.body.insertAdjacentHTML(
+  "afterbegin",
+  `
+	<label class="color-scheme">
+		Theme:
+		<select>
+			<!-- TODO add <option> elements here -->
+		</select>
+	</label>`
+);
