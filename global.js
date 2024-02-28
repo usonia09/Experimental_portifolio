@@ -9,11 +9,23 @@ let currentLink = navLinks.find(
 currentLink?.classList.add("current");
 
 let pages = [
-  { url: "", title: "Home" },
-  { url: "Experimental_portifolio/projects/", title: "Projects" },
-  { url: "Experimental_portifolio/Assignments/", title: "Assignments" },
-  { url: "Experimental_portifolio/contact/", title: "Contact Me" },
-  { url: "Experimental_portifolio/resume/", title: "My Resume" },
+  { url: "https://usonia09.github.io/Experimental_portifolio", title: "Home" },
+  {
+    url: "https://usonia09.github.io/Experimental_portifolio/projects/",
+    title: "Projects",
+  },
+  {
+    url: "https://usonia09.github.io/Experimental_portifolio/Assignments/",
+    title: "Assignments",
+  },
+  {
+    url: "https://usonia09.github.io/Experimental_portifolio/contact/",
+    title: "Contact Me",
+  },
+  {
+    url: "https://usonia09.github.io/Experimental_portifolio/resume/",
+    title: "My Resume",
+  },
 ];
 
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
