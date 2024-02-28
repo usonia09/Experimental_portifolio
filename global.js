@@ -9,21 +9,21 @@ let currentLink = navLinks.find(
 currentLink?.classList.add("current");
 
 let pages = [
-  { url: "https://usonia09.github.io/Experimental_portifolio", title: "Home" },
+  { url: "", title: "Home" },
   {
-    url: "https://usonia09.github.io/Experimental_portifolio/projects/",
+    url: "projects/",
     title: "Projects",
   },
   {
-    url: "https://usonia09.github.io/Experimental_portifolio/Assignments/",
+    url: "Assignments/",
     title: "Assignments",
   },
   {
-    url: "https://usonia09.github.io/Experimental_portifolio/contact/",
+    url: "contact/",
     title: "Contact Me",
   },
   {
-    url: "https://usonia09.github.io/Experimental_portifolio/resume/",
+    url: "resume/",
     title: "My Resume",
   },
 ];
