@@ -62,3 +62,12 @@ document.body.insertAdjacentHTML(
 		</select>
 	</label>`
 );
+
+const select = document.querySelector("select");
+
+select.addEventListener("input", function (event) {
+  document.documentElement.style.setProperty(
+    "color-scheme",
+    event.target.value
+  );
+});
