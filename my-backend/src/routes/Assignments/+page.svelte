@@ -1,3 +1,6 @@
+<svelte:head>
+    <title>Assigments</title>
+</svelte:head>
 <h1>Assigments</h1>
 <div class="Assigment">
   <article>

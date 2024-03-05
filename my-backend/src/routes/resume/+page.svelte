@@ -1,3 +1,6 @@
+<svelte:head>
+    <title>Resume</title>
+</svelte:head>
 <div class="resume">
     <div class="experiences">
       <h2>SONIA UWASE</h2>
